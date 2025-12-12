@@ -2,7 +2,6 @@ package org.example.controller;
 
 import org.example.model.Pelicula;
 import org.example.service.PeliculaService;
-import org.example.service.ProyeccionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -16,12 +15,7 @@ public class PeliculaController {
 
     @GetMapping
     public List<Pelicula> listar() {
-        return peliculaService.lisatarTodas();
-    }
-
-    @GetMapping("/{id}")
-    public Pelicula obtenerUno(@PathVariable Integer id) {
-        return peliculaService.obtenerPorID(id);
+        return peliculaService.listarTodas();
     }
 
     @PostMapping
@@ -29,9 +23,13 @@ public class PeliculaController {
         return peliculaService.guardar(pelicula);
     }
 
+    @GetMapping("/{id}")
+    public Pelicula obtenerUna(@PathVariable Integer id) {
+        return peliculaService.obtenerPorId(id);
+    }
+
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Integer id) {
         peliculaService.eliminar(id);
     }
-
 }

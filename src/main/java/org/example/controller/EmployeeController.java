@@ -25,15 +25,14 @@ public class EmployeeController {
         return empleadoService.listarTodos();
     }
 
-    // BUSCAR UNO POR ID (GET con parámetro) -> NUEVO
-    // URL ejemplo: http://localhost:8080/api/empleados/1
+    // BUSCAR UNO POR ID
     @GetMapping("/{id}")
     public Empleado obtenerUno(@PathVariable Integer id) {
         return empleadoService.obtenerPorId(id);
     }
 
     // BORRAR POR ID (DELETE) -> NUEVO
-    // URL ejemplo: http://localhost:8080/api/empleados/1
+
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Integer id) {
         empleadoService.eliminarEmpleado(id);
