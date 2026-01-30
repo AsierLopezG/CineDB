@@ -19,7 +19,7 @@ public class EntradaController {
     }
 
     @PostMapping
-    public Entrada venderEntrada(@RequestBody Entrada entrada) {
+    public Entrada venderEntrada(@PathVariable Integer id, @RequestBody Entrada entrada) {
         return entradaService.guardar(entrada);
     }
 
